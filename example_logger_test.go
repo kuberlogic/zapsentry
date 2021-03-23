@@ -10,7 +10,7 @@ import (
 	"go.uber.org/zap/zapcore"
 	"go.uber.org/zap/zaptest/observer"
 
-	"github.com/TheZeroSlave/zapsentry"
+	"github.com/kuberlogic/zapsentry"
 )
 
 func ExampleAttachCoreToLogger() {

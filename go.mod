@@ -1,8 +1,8 @@
-module github.com/TheZeroSlave/zapsentry
+module github.com/kuberlogic/zapsentry
 
-go 1.12
+go 1.13
 
 require (
-	github.com/getsentry/sentry-go v0.9.0
+	github.com/getsentry/sentry-go v0.10.0
 	go.uber.org/zap v1.16.0
 )

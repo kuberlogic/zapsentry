@@ -50,6 +50,7 @@ func (c *core) Write(ent zapcore.Entry, fs []zapcore.Field) error {
 	event.Platform = "Golang"
 	event.Extra = clone.fields
 	event.Tags = c.cfg.Tags
+	event.Logger = ent.LoggerName
 
 	if !c.cfg.DisableStacktrace {
 		trace := sentry.NewStacktrace()
@@ -137,8 +138,9 @@ func filterFrames(frames []sentry.Frame) []sentry.Frame {
 	for i := range frames {
 		// Skip zapsentry and zap internal frames, except for frames in _test packages (for
 		// testing).
-		if (strings.HasPrefix(frames[i].Module, "github.com/TheZeroSlave/zapsentry") ||
-			strings.HasPrefix(frames[i].Function, "go.uber.org/zap")) &&
+		if (strings.HasPrefix(frames[i].Module, "github.com/kuberlogic/zapsentry") ||
+			strings.HasPrefix(frames[i].Function, "go.uber.org/zap") ||
+			strings.HasPrefix(frames[i].Function, "github.com/go-logr/zapr")) &&
 			!strings.HasSuffix(frames[i].Module, "_test") {
 			break
 		}

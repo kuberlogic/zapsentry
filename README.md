@@ -1,3 +1,11 @@
+Forked from TheZeroSlave/zapsentry
+
+Improvements:
+- go 1.13
+- sentry-go v0.10.0
+- converting logger name to sentry logger
+- filtering k8s logger dependency - github.com/go-logr/zapr
+
 # Sentry client for zap logger
 
 Integration of sentry client into zap.Logger is pretty simple:
