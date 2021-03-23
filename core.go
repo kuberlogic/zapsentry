@@ -140,7 +140,7 @@ func filterFrames(frames []sentry.Frame) []sentry.Frame {
 		// testing).
 		if (strings.HasPrefix(frames[i].Module, "github.com/kuberlogic/zapsentry") ||
 			strings.HasPrefix(frames[i].Function, "go.uber.org/zap") ||
-			strings.HasPrefix(frames[i].Function, "github.com/go-logr/zapr")) &&
+			strings.HasPrefix(frames[i].Module, "github.com/go-logr/zapr")) &&
 			!strings.HasSuffix(frames[i].Module, "_test") {
 			break
 		}
